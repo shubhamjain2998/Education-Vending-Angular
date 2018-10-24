@@ -1,0 +1,9 @@
+<div class="row" id="background" [style.height.px]="height">
+  <div class="col-md-12">
+    <h5>Want to have your own article published?</h5>
+    <button class="btn btn-primary mb-2" (click)="Add()">Add One</button>
+  </div>
+  <app-article-item *ngFor="let articleEl of articles; let i = index"
+  [index] = i
+  [article] = articleEl class="col-md-4 col-sm-4 col-6"></app-article-item>
+</div>

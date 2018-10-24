@@ -1,0 +1,40 @@
+<div class="container-fluid bg-home-content">
+    <div class="jumbotron my-0 mx-0 bg-head">
+        <h1>Contact Us</h1>
+        <p>If you have any problem or suggestion</p>
+    </div>
+    <div class="row mx-1">
+        <div class="col-md-4 offset-md-2 custom-border">
+            <h5 class="text-center"><i class="fa fa-phone"></i> 1234567890 </h5>
+        </div>
+        <div class="col-md-4 custom-border">
+            <h5 class="text-center"><i class="fa fa-envelope"></i> jains1801@gmail.com</h5>
+        </div>
+    </div>
+    <div class="row mt-4 pb-4">
+        <div class="col-md-8 offset-md-2">
+            <form (ngSubmit)="onSubmit(f)" #f='ngForm' *ngIf="authService.isAuthenticated()" class="bg-body">
+                <h5 class="pt-5 pb-2">You can submit your feedback by submitting the following form.</h5>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" ngModel required #email="ngModel">
+                    <span class="form-text text-muted" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+                </div>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" name="title" class="form-control" ngModel required #title="ngModel">
+                    <span class="form-text text-muted" *ngIf="!title.valid && title.touched">Title field can't be blank!</span>
+                </div>
+                <div class="form-group">
+                    <label for="body">Message</label>
+                    <textarea class="form-control" name="body" id="body" cols="30" rows="10" ngModel required #body="ngModel"></textarea>
+                    <span class="form-text text-muted" *ngIf="!body.valid && body.touched">Message can't be blank!</span>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success" type="submit" [disabled]="!f.valid">Submit</button>
+                </div>
+            </form> 
+            <h4 *ngIf="!authService.isAuthenticated()">Login to give feedback as we require neccessary details.</h4>
+        </div>
+    </div>
+</div>

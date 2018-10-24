@@ -1,0 +1,6 @@
+.bg-home-content{
+  background-image: url("../../assets/images/bg-cropped.jpg");
+  background-size: cover;
+  /*margin-top: -1rem;*/
+  /*margin-bottom: -2.5rem;*/
+}

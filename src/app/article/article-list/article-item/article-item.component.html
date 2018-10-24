@@ -1,0 +1,14 @@
+<div
+  style="cursor: pointer;"
+  [routerLink]="[index]"
+  routerLinkActive="active"
+  class="list-group-item mb-3">
+  <div>
+    <img *ngIf="article.img != null"
+      src="{{article.img}}" alt="{{article.title}}" class="img-fluid">
+    <img *ngIf="article.img == null"
+      src="../../../../assets/images/default1_Cropped.jpg" alt="{{article.title}}" class="img-fluid">
+    <p>{{article.title}}</p>
+    <p>{{article.date | date}}</p>
+  </div>
+</div>

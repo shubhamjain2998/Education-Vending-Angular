@@ -1,0 +1,13 @@
+.bl{
+    color: cyan;
+  }
+  .bl:hover{
+    color: dodgerblue;
+  }
+  .re{
+    color: orangered;
+  }
+  .re:hover{
+    color: firebrick;
+  }
+  

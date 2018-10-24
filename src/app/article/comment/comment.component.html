@@ -1,0 +1,20 @@
+<app-comment-edit *ngIf="commentEdit"
+ [editComment] = commentEdit
+ [editedComment] = comment
+ [user] = user></app-comment-edit>
+<div class="my-5" style="background-color: darkgrey;" *ngIf="!commentEdit">
+  <p class="my-2">{{ArticleUser.first_name + " " + ArticleUser.last_name}}</p>
+  <div class="review-box">
+    <p class="review">{{comment.review}}</p>
+    <ngb-rating [(rate)]="comment.rating" [readonly]="true" [max]="5">
+      <ng-template let-fill="fill">
+        <span class="star" [class.filled]="fill===100">&#9733;</span>
+      </ng-template>
+    </ngb-rating>
+  </div>
+  <span *ngIf="editMode">
+    <button class="btn btn-success mr-2" (click)="onEdit()">Edit</button>
+    <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+  </span>
+  <p class="float-right">{{comment.date | date:'full'}}</p>
+</div>

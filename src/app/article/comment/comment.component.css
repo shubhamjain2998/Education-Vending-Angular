@@ -1,0 +1,15 @@
+.star {
+  font-size: 1.5rem;
+  color: white;
+}
+.filled {
+  color: blue;
+}
+.review-box {
+  background-color: rgba(219, 216, 210, 0.5)
+}
+.review {
+  font-weight: 300;
+  font-size: 18px;
+}
+  

@@ -1,0 +1,19 @@
+<div class="my-2">
+  <h5 class="mb-3">Submit Your Comment here</h5>
+  <form (ngSubmit) = "onSubmit(f)" #f="ngForm">
+    <div class="form-group">
+      <label for="body">Body</label>
+      <textarea name="body" id="body" cols="30" rows="4" required class="form-control" ngModel
+                #body="ngModel"></textarea>
+      <span class="form-text text-muted" *ngIf="!body.valid && body.touched">Body of article can't be empty!</span>
+    </div>
+    <ngb-rating [(rate)]="selected" (hover)="hovered=$event" (leave)="hovered=0" [readonly]="readonly" [max]="5">
+      <ng-template let-fill="fill">
+        <span class="star" [class.filled]="fill===100">&#9733;</span>
+      </ng-template>
+    </ngb-rating>
+    <div class="float-right">
+      <button class="btn btn-success mr-2" type="submit" [disabled]="!f.valid">Submit</button>
+    </div>
+  </form>
+</div>

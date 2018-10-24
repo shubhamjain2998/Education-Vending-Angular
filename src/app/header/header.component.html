@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <!--<a class="navbar-brand" href="#">Navbar</a>-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" (click)="isCollapsed = !isCollapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown" [ngbCollapse]="isCollapsed">
+    <ul class="navbar-nav my-0">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link nav-fix" routerLink="/home">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link nav-fix" routerLink="/contact">Contact</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link nav-fix" routerLink="/qpaper" (click)="check()">Question Paper</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link nav-fix" routerLink="/article" (click)="check()">Articles</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link nav-fix" routerLink="/quiz">Quiz</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item" *ngIf="!authService.isAuthenticated()">
+        <a class="nav-link nav-fix" (click)="openVerticallyCentered(content)" >Register <i
+          class="fa fa-user-plus"></i></a>
+      </li>
+      <li class="nav-item" *ngIf="authService.isAuthenticated()">
+        <a class="nav-link nav-fix" (click)="onLogout()">Logout <i class="fa fa-sign-out"></i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!------------------------------Register Modal------------------------------------------->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Register</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modelref.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onSignup(f)" #f='ngForm'>
+      <div class="form-row">
+        <div class="form-group col-md">
+          <label for="firstname">First Name</label>
+          <input type="text" id="firstname" name="firstname" class="form-control" ngModel required #firstname="ngModel">
+        </div>
+        <div class="form-group col-md">
+          <label for="lastname">Last Name</label>
+          <input type="text" id="lastname" name="lastname" class="form-control" ngModel required #lastname="ngModel">
+        </div>
+      </div>
+      <!--<p *ngIf="!userData.valid && userData.touched">User Data is invalid</p>-->
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" class="form-control" ngModel required #username="ngModel">
+        <span class="form-text text-muted" *ngIf="!username.valid && username.touched">Enter a valid Username</span>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" ngModel required #email="ngModel">
+        <span class="form-text text-muted" *ngIf="!email.valid && email.touched">Please enter a valid email!</span>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" class="form-control" ngModel required #password="ngModel">
+        <span class="form-text text-muted" *ngIf="!password.valid && password.touched">Enter a valid password</span>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success" type="submit" [disabled]="!f.valid">Register</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+

@@ -1,0 +1,10 @@
+.nav-fix {
+  cursor: pointer;
+  font-weight: bold;
+}
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+/* .active{
+  background-color: rgb(225, 225, 225);
+} */

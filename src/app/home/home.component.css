@@ -1,0 +1,29 @@
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+.bg{
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.bg-home-head{
+  background-image: url("../../assets/images/bg2_cropped.jpg");
+  background-size: cover;
+}
+.desktop-fix {
+  height: 90vh;
+}
+.carousel-caption{
+  width: inherit;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.bg-home-content{
+  background-image: url("../../assets/images/bg-cropped.jpg");
+  background-size: cover;
+  /*margin-top: -1rem;*/
+  /*margin-bottom: -2.5rem;*/
+}
+
+.heading{
+  font-family: 'Roboto', sans-serif;
+}

@@ -1,0 +1,14 @@
+<div
+  style="cursor: pointer;"
+  routerLinkActive="active"
+  class="list-group-item mb-3">
+  <div>
+    <img *ngIf="qpaper.img != null"
+      src="{{qpaper.img}}" alt="{{qpaper.name}}" class="img-fluid">
+    <img *ngIf="qpaper.img ==null"
+      src="../../../../assets/images/questionpaper_Cropped.jpg" alt="{{qpaper.name}}" class="img-fluid">
+    <p> {{qpaper.name}} <br>
+        {{qpaper.branch}}</p>
+    <a href="{{qpaper.file}}" target="_blank">Download</a>
+  </div>
+</div>

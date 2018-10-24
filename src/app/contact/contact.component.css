@@ -1,0 +1,19 @@
+.bg-home-content{
+  background-image: url("../../assets/images/bg-cropped.jpg");
+  background-size: cover;
+  /*margin-top: -1rem;*/
+  /*margin-bottom: -2.5rem;*/
+}
+.bg-head{
+  background-color: rgba(219, 216, 210, 0.8)
+}
+.bg-body{
+  background-color: rgba(219, 216, 210, 0.5)
+}
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+.custom-border{
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+}

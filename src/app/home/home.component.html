@@ -1,0 +1,98 @@
+<div>
+  <div class="container-fluid bg-home-head pt-2">
+    <div class="row">
+      <!--<div class="col-md-12" *ngIf="user!=null">-->
+        <!--<h6>Welcome</h6>-->
+      <!--</div>-->
+      <div class="col-md-8 desktop-fix">
+        <ngb-carousel>
+          <ng-template ngbSlide>
+            <img class="desktop-fix img-fluid" src="../../assets/images/blog_Cropped.jpg" alt="Random first slide">
+            <div class="carousel-caption">
+              <h3>Articles</h3>
+              <p>Create and read useful articles related to different topics.</p>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <img class="desktop-fix img-fluid" src="../../assets/images/questionpaper_Cropped.jpg" alt="Random second slide">
+            <div class="carousel-caption">
+              <h3>Question Paper</h3>
+              <p>Need previous year question papers? Download all with single click.</p>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+          <img class="desktop-fix img-fluid" src="../../assets/images/quiz1_Cropped.jpg" alt="Random third slide">
+            <div class="carousel-caption">
+              <h3>Quiz</h3>
+              <p>Take Various Quiz to test your knowledge.</p>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </div>
+      <div class="col-md-4 d-flex justify-content-center align-items-center bg">
+        <div>
+          <div class="my-5">
+            <h1 class="text-center">BITR Education Vending</h1>
+          </div>
+          <div class="my-5">
+            <h5 class="text-center">Access all the much needed resources anywhere anytime for free.</h5>
+          </div>
+          <div>
+            <!--<div class="bg-secondary">-->
+              <!--<h5>Invalid Credentials. Try Again!</h5>-->
+            <!--</div>-->
+            <form (ngSubmit)="onSignIn(f)" #f='ngForm' *ngIf="!authService.isAuthenticated()">
+              <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" class="form-control" ngModel required #username="ngModel">
+                <span class="form-text text-muted" *ngIf="!username.valid && username.touched">Enter a valid Username</span>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" class="form-control" ngModel required #password="ngModel">
+                <span class="form-text text-muted" *ngIf="!password.valid && password.touched">Enter a valid password</span>
+              </div>
+              <button class="btn btn-success font-weight-bold" type="submit" [disabled]="!f.valid">Login <i class="fa fa-sign-in"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-------------------------------ARTICLES------------------------------------------------------------>
+
+  <div class="bg-home-content">
+    <div class="container py-5">
+      <div class="my-4">
+        <div class="row">
+          <div>
+            <h2 class="heading">Latest Articles</h2>
+          </div>
+          <div>
+            <ngb-carousel [showNavigationArrows]="showNavigationArrows " *ngIf="articles">
+              <ng-template ngbSlide *ngFor="let articleEl of articles;let i = index">
+                <app-article-carousel
+                  [index]=i
+                  [article]=articleEl
+                >
+                </app-article-carousel>
+              </ng-template>
+            </ngb-carousel>
+          </div>
+        </div>
+      </div>
+      <div class="my-5">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="heading">Recently Added Question Papers</h2>
+          </div>
+          <app-qpaper-home *ngFor="let qp of qpapers; let i = index"
+                           [index] = i
+                           [qpaper] = qp class="col-md-3"></app-qpaper-home>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  

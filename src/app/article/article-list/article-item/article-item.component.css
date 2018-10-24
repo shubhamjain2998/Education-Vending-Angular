@@ -1,0 +1,6 @@
+.list-group-item {
+  background-color: rgba(250,250,250,0.5);
+}
+.list-group-item:hover {
+  background-color: rgb(220, 220, 220);
+}

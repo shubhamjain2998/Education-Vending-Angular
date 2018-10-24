@@ -1,0 +1,38 @@
+<div class="container" style="min-height: 90vh;">
+  <div class="row">
+    <div class="col-md-12">
+        <div class="float-right">
+            <button class="btn btn-success mr-2" (click)="onEdit()" *ngIf="editMode">Edit</button>
+            <button class="btn btn-danger mr-2" (click)="onDelete()" *ngIf="editMode">Delete</button>
+            <button class="btn btn-primary" (click)="onBack()">Back</button>
+          </div>
+          <div>
+            <h1 style="font-family: 'Roboto', sans-serif;">{{article.title}}</h1>
+          </div>
+          <div>
+            <img src="{{article.img}}" alt="{{article.title}}" *ngIf="article.img!=null" class="img-fluid">
+          </div>
+          <div class="mt-4">
+            <p class="art-body text-justify">{{article.body}}</p>
+          </div>
+          <div class="my-3">
+            <h6 class="float-right font-weight-bold">Written by - {{user.first_name + " " + user.last_name}} on {{article.date | date}}</h6>
+          </div>
+    </div>
+    <div class="col-md-12 mt-3 custom-border">
+      <h4 class="mb-3">Comments</h4>
+      <hr>
+      <div>
+        <app-comment-edit *ngIf="newComment"
+        [commentArticle] = article
+        [user] = activeUser></app-comment-edit>
+        <!-- <app-books-rating *ngFor="let reviewEl of reviews; let i = index"
+        [index] = i
+        [review] = reviewEl ></app-books-rating> -->
+        <app-comment *ngFor="let commentEl of comments; let i = index"
+        [index] = i
+        [comment] = commentEl></app-comment>
+      </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,29 @@
+<!--<div-->
+  <!--style="cursor: pointer;"-->
+  <!--[routerLink]="[index]"-->
+  <!--routerLinkActive="active"-->
+  <!--class="list-group-item">-->
+  <!--<div>-->
+    <!--<img *ngIf="article.img != null"-->
+         <!--src="{{article.img}}" alt="{{article.title}}" class="img-fluid" style="max-width: 300px;">-->
+    <!--<img *ngIf="article.img == null"-->
+         <!--src="../../../../assets/images/default_Cropped.jpg" alt="{{article.title}}" class="img-fluid" style="max-width: 300px;">-->
+    <!--<p>{{article.title}}</p>-->
+    <!--<p>{{article.date | date}}</p>-->
+    <!--<p>{{article.user}}</p>-->
+  <!--</div>-->
+<!--</div>-->
+<div class="row bg-dark">
+  <div class="col-md-8">
+    <img *ngIf="article.img != null"
+         src="{{article.img}}" alt="{{article.title}}" class="img-fluid">
+    <img *ngIf="article.img == null"
+         src="../../../assets/images/default1_Cropped.jpg" alt="{{article.title}}" class="img-fluid">
+  </div>
+  <div class="col-md-4 d-flex align-items-center justify-content-center">
+    <div>
+      <h3 class="text-white mb-3 head">" {{article.title}} "</h3>
+      <h5 class="text-white float-right mr-5">- {{user.first_name + " " + user.last_name}}</h5>
+    </div>
+  </div>
+</div>
